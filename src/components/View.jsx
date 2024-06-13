@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
+
 const View = () => {
+    const [task, changeData] = useState(
+        [
+            {
+                "tname": "kzjx",
+                "date": "zxjh",
+                "priority": "zjxk",
+                "tdesc": "zxkj"
+            }
+        ]
+    )
     return (
         <div>
             <div class="card text-center mb-3">
@@ -20,13 +31,17 @@ const View = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Dance</td>
-                                            <td>2-July-24</td>
-                                            <td>High</td>
-                                            <td>dsfvds</td>
-                                        </tr>                                    
-                                        </tbody>
+                                        {task.map(
+                                            (value, index) => {
+                                                return <tr>
+                                                    <td>{value.tname}</td>
+                                                    <td>{value.date}</td>
+                                                    <td>{value.priority}</td>
+                                                    <td>{value.tdesc}</td>
+                                                </tr>
+                                            }
+                                        )}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
