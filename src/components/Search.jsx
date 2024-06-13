@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Nav from './Nav'
 
 const Search = () => {
     const [task, changeData] = useState(
@@ -35,6 +36,7 @@ const Search = () => {
     }
     return (
         <div>
+            <Nav/>
             <div class="card text-center mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Search Task</h5>
