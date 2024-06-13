@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import Nav from './Nav';
 
 const View = () => {
     const [task, changeData] = useState([])
@@ -18,6 +19,7 @@ const View = () => {
     useEffect(() => { fetchData() }, [])
     return (
         <div>
+            <Nav/>
             <div class="card text-center mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Task List</h5>
