@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 const Add = () => {
     const [task, changeData] = useState(
@@ -14,6 +15,17 @@ const Add = () => {
     }
     const readValue = () => {
         console.log(task)
+        axios.post("http://localhost:8235/add", task).then(
+            (response) => {
+                console.log(response.data)
+                if (response.data.status == "success") {
+                    alert("successfully added")
+                }
+                else {
+                    alert("failed")
+                }
+            }
+        )
     }
     return (
         <div>
