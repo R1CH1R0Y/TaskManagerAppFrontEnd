@@ -1,7 +1,20 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 
 const Add = () => {
+    const [task, changeData] = useState(
+        {
+            "tname": "",
+            "date": "",
+            "priority": "",
+            "tdesc": ""
+        }
+    )
+    const eventHandler = (event) => {
+        changeData({ ...task, [event.target.name]: event.target.value })
+    }
+    const readValue = () => {
+        console.log(task)
+    }
     return (
         <div>
             <div class="card text-center mb-3">
@@ -11,18 +24,18 @@ const Add = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                <div className="row g-3">
+                            <div className="row g-3">
                                     <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                         <label htmlFor="" className="form-label">Task Name :</label>
-                                        <input type="text" className="form-control" />
+                                        <input type="text" className="form-control" name='tname' value={task.tname} onChange={eventHandler} />
                                     </div>
                                     <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                         <label htmlFor="" className="form-label">Date :</label>
-                                        <input type="text" className="form-control" />
+                                        <input type="text" className="form-control" name='date' value={task.date} onChange={eventHandler} />
                                     </div>
                                     <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                         <label htmlFor="" className="form-label">Priority :</label>
-                                        <select id="" className="form-control" >
+                                        <select id="" className="form-control" name='priority' value={task.priority} onChange={eventHandler} >
                                             <option value=""></option>
                                             <option value="High">High</option>
                                             <option value="High">Medium</option>
@@ -31,14 +44,14 @@ const Add = () => {
                                     </div>
                                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                         <label htmlFor="" className="form-label">Description :</label>
-                                        <textarea id="" className="form-control" ></textarea>
+                                        <textarea id="" className="form-control" name='tdesc' value={task.tdesc} onChange={eventHandler} ></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <br />
-                    <button className="btn btn-success" >Add</button>
+                    <button className="btn btn-success" onClick={readValue}>Add</button>
                 </div>
             </div>
         </div>
