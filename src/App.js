@@ -3,14 +3,17 @@ import './App.css';
 import View from './components/View';
 import Add from './components/Add';
 import Search from './components/Search';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <View/>
-      <Search/>
-      <Add/>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Add/>}/>
+      <Route path='/sd' element={<Search/>}/>
+      <Route path='/v' element={<View/>}/>
+    </Routes>
+      </BrowserRouter>
   );
 }
 
